@@ -9,7 +9,6 @@ __pycache__/
 dist/
 build/
 .env
-db.sqlite3
 .DS_Store
 *.log
 .vscode/
@@ -17,4 +16,4 @@ db.sqlite3
 *.swp
 *.swo
 *~
-media/
+dheemail/
