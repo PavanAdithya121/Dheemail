@@ -10,8 +10,10 @@ import sys
 
 
 BASE_DIR = os.path.dirname(__file__)
+# Ensure the project root is searched first so the real `mailapp` app is imported.
+sys.path.insert(0, BASE_DIR)
 # Add the inner project folder to sys.path so `import dheemail` succeeds.
-sys.path.insert(0, os.path.join(BASE_DIR, "dheemail"))
+sys.path.insert(1, os.path.join(BASE_DIR, "dheemail"))
 
 
 def main():
