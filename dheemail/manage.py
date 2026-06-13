@@ -1,17 +1,7 @@
 #!/usr/bin/env python
-"""Top-level wrapper to make the inner Django project importable for hosts.
-
-This file ensures the `dheemail/` package (the inner project folder) is on
-`sys.path` so imports like `dheemail.settings` work when the host runs from the
-repository root (for example, Vercel builds).
-"""
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
-
-
-BASE_DIR = os.path.dirname(__file__)
-# Add the inner project folder to sys.path so `import dheemail` succeeds.
-sys.path.insert(0, os.path.join(BASE_DIR, "dheemail"))
 
 
 def main():
