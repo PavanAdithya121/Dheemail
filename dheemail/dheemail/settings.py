@@ -1,10 +1,18 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-change-this-key-before-production"
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "dheemailapp.vercel.app"]
+# Read sensitive/production settings from environment variables
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY", "django-insecure-change-this-key-before-production"
+)
+# Default to False in production; set DEBUG=True locally using env var when needed
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+# ALLOWED_HOSTS can be provided as a comma-separated env var
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS", "127.0.0.1,localhost,dheemailapp.vercel.app"
+).split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
